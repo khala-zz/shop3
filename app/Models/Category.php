@@ -11,14 +11,6 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = ["title","description","parent_id","featured"];
     
-    public function features()
-    {
-        return $this->hasMany(CategoryFeature::class, 'category_id');
-    }
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'product_id');
-    }
     
 
     
