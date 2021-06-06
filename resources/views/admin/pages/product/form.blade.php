@@ -1,3 +1,8 @@
+@section('scripts')
+
+<script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
+
+@endsection
 <div class="row">
     <!-- thong tin co bản panel -->
     <div class="col-md-6">
