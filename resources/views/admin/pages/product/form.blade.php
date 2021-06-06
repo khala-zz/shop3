@@ -267,7 +267,7 @@
 
 @section('scripts')
 
-<script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
+
 <script src="{{ asset('admins/js/tinymce/init_tinymce.js') }}"></script>
 <script src="{{ asset('admins/js/product/form.js') }}"></script>
 @endsection
