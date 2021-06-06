@@ -15,6 +15,9 @@ use App\Http\Controllers\admin\AdminNewsController;
 use App\Http\Controllers\admin\AdminTagController;
 use App\Http\Controllers\admin\AdminContactController;
 use App\Http\Controllers\admin\AdminNewsletterController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
 
 //backend
 Route::middleware(['auth']) -> prefix('/khalaadmin') -> group(function(){
