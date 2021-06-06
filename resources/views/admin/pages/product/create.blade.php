@@ -6,7 +6,11 @@
 
 @endsection
 @section('content')
+@section('scripts')
 
+<script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
+
+@endsection
 <section class="content-header">
    <div class="panel panel-default">
     <div class="panel-heading"><strong class="panel-color-heading" >Sản phẩm</strong></div>
