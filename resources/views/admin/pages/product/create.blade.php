@@ -5,11 +5,7 @@
 <link href="{{ url('admins/css/product/main.css') }}" rel="stylesheet">
 
 @endsection
-@section('scripts')
 
-<script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
-
-@endsection
 @section('content')
 
 <section class="content-header">
