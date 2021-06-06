@@ -1,7 +1,7 @@
  $(function(){	
         //add tinymce
         let editor_config = {
-        	path_absolute : "http://localhost/shop2/public/",
+        	path_absolute : "/",
         	selector: 'textarea.tinymce_editor_init',
         	relative_urls: false,
         	plugins: [
