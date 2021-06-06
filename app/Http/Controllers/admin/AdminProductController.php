@@ -131,7 +131,8 @@ class AdminProductController extends Controller
             $validated = $request->validated();
 
             $product = new Product;
-            foreach($request->except('features', 'multi-image','_token') as $key => $value) {
+            //price,amount,discount de parse sang int luu vao database
+            foreach($request->except('features', 'multi-image','_token','price','amount','discount') as $key => $value) {
                 if($key == 'discount_start_date' || $key == 'discount_end_date') {
                     if($value != ''){
                         $product->{$key} = !empty($value) && !is_null($value)?date("Y-m-d", strtotime($value)) : null;
@@ -150,7 +151,10 @@ class AdminProductController extends Controller
 
                 $product->image = uploadFile($request, 'image', public_path('uploads/products-daidien'),$request -> input('title'));
             }
-            $product->created_by = auth()->user()->id;
+            $product-> created_by = auth() -> id();
+            $product-> price = $request -> price;
+            $product-> amount = $request -> amount;
+            $product-> discount = $request -> discount;
 
             $product->save();
 
