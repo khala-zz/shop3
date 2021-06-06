@@ -241,7 +241,7 @@ class AdminProductController extends Controller
 
                 $product->image = uploadFile($request, 'image', public_path('uploads/products-daidien'),$request -> input('title'));
             }
-            $product-> price = intval($request -> price);
+            $product-> price = $request -> price;
             $product-> amount = intval($request -> amount);
             $product-> discount = intval($request -> discount);
             $product->save();
