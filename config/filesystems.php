@@ -52,6 +52,14 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'google_drive' => [
+            'driver' => 'google_drive',
+            'clientId' => '724549789014-p4jauk64b4ouss2ntlljbcb55udbs9f8.apps.googleusercontent.com',
+            'clientSecret' => 'YRQVXzGC-cPd0uUBP-lvmbkj',
+            'refreshToken' => '1//04D3WUAtisFVDCgYIARAAGAQSNwF-L9IrhqVuli4MOX-YNLmogkLMRVytXSSBwou4rKl19n0zMgZPuanao8wwXqBqdOmtY0OrFWg',
+            'folderId' => '1ngNhHxMcbkluin2QOU_8Dpf5_10y2c7k',
+        ],
+
     ],
 
     /*
