@@ -41,9 +41,9 @@
                     <div class="container pt-3">
                         <h2 class="title">danh mục sản phẩm ưa chuộng</h2>
                         <div class="row">
-                            {{dd($categories)}}
+                            
                             @forelse($categories as $category)
-                           
+                           {{slugify($category -> title,'-')}}
                                 <div class="col-md-3 col-6 mb-4">
                                     <div
                                         class="category category-default category-default-1 category-absolute overlay-zoom">
