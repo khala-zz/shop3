@@ -150,7 +150,7 @@ class AdminProductController extends Controller
 
                 $product->image = uploadFile($request, 'image', public_path('uploads/products-daidien'),$request -> input('title'));
             }
-            $product->created_by = auth() -> id();
+            $product->created_by = auth()->user()->id;
 
             $product->save();
 

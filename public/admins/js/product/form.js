@@ -13,7 +13,7 @@ $(function () {
             $.ajax({
 
                 type:'get',
-                url:'/khalaadmin/get-product-features',
+                url:'http://localhost/shop2/public/khalaadmin/get-product-features',
                 data:{id_category:idCategory},
                 success:function(resp){
                    

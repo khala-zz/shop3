@@ -5,7 +5,6 @@
 <link href="{{ url('admins/css/product/main.css') }}" rel="stylesheet">
 
 @endsection
-
 @section('content')
 
 <section class="content-header">

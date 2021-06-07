@@ -1,4 +1,3 @@
-
 <div class="row">
     <!-- thong tin co bản panel -->
     <div class="col-md-6">
@@ -206,7 +205,7 @@
     <div class="panel-heading">Mô tả</div>
     <div class="panel-body">
         <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
-            <script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
+
            <textarea id="description" name="description" class="form-control tinymce_editor_init" rows="20">
                {{ isset($product->description) ? $product->description : old('description')}}
            </textarea>
@@ -263,7 +262,7 @@
 
 @section('scripts')
 
-
+<script src="{{ asset('admins/js/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('admins/js/tinymce/init_tinymce.js') }}"></script>
 <script src="{{ asset('admins/js/product/form.js') }}"></script>
 @endsection
