@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Slider;
-use App\Models\Category;
 use App\Models\Product;
 use App\Models\News;
 use Illuminate\Support\Facades\DB;
@@ -17,14 +16,12 @@ class HomeController extends Controller
    
     private $setting;
     private $slider;
-    private $category;
     private $product;
     private $news;
 
-    public function __construct(Setting $setting,Slider $slider,Category $category,Product $product, News $news){
+    public function __construct(Setting $setting,Slider $slider,Product $product, News $news){
     	$this -> setting = $setting;
     	$this -> slider = $slider;
-    	$this -> category = $category;
     	$this -> product =$product;
         $this -> news = $news;
     }
@@ -33,8 +30,7 @@ class HomeController extends Controller
     	$settings = $this -> setting -> select('setting_key','setting_value') -> where('is_active',1) ->whereNotIn('id',[6,7])->get();
     	//get slider
     	$sliders = $this -> slider -> select('name','nametwo','namethree','namefour','image_name') -> where('is_active',1) -> get();
-    	//get category
-    	$categories = $this -> category -> select('id','image','title') -> where('is_active',1) -> get();
+    	
     	
     	//get product featured
     	$products_featured = $this -> product -> with('category') -> where('is_active',1) -> where('noi_bat',1) -> latest() -> take(5) -> get();
@@ -70,7 +66,7 @@ class HomeController extends Controller
 
         
 
-    	return view('frontend.home.home',compact('settings','sliders','categories','products_featured','products_latest','products_selling','products_rate','products_sale','news','review_count'));
+    	return view('frontend.home.home',compact('settings','sliders','products_featured','products_latest','products_selling','products_rate','products_sale','news','review_count'));
     }
 
     public function searchProducts(Request $request){

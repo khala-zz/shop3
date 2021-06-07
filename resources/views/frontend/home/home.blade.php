@@ -39,10 +39,10 @@
                     'delay': '.3s'
                 }">
                     <div class="container pt-3">
-                        <h2 class="title">danh mục sản phẩm ưa chuộng</h2>
+                        <h2 class="title">Danh mục sản phẩm ưa chuộng</h2>
                         <div class="row">
                             
-                            @forelse($categories as $category)
+                            @forelse($categories_share as $category)
                           
                                 <div class="col-md-3 col-6 mb-4">
                                     <div
