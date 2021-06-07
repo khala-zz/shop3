@@ -54,7 +54,7 @@
                                             </figure>
                                         </a>
                                         <div class="category-content">
-                                            <h4 class="category-name"><a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">{{$category -> title}}</a></h4>
+                                            <h4 class="category-name"><a href="{{ url('/danh-muc-san-pham/'.slugify($category -> title,'-').'/'.$category -> id)}}">{{$category -> title}}</a></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                             <div class="product-details">
                               
                                 <div class="product-cat">
-                                    <a href="{{route('category.product',['slug' => slugify($product -> catTitle,'-'),'id' => $product -> catId])}}">{{ $product -> catTitle }}</a>
+                                    <a href="{{url('/danh-muc-san-pham/'.slugify($product -> catTitle,'-').'/'.$product -> catId)}}">{{ $product -> catTitle }}</a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{ route('product.detail',['slug' => slugify($product -> title,'-'),'id' => $product -> id])}}">{{ $product -> title }}</a>
@@ -239,7 +239,7 @@
                             <div class="product-details">
                                 
                                 <div class="product-cat">
-                                    <a href="{{route('category.product',['slug' => slugify(optional($productFeature -> category) -> title,'-'),'id' => optional($productFeature -> category) -> id])}}">{{optional($productFeature -> category) -> title}}</a>
+                                    <a href="{{ url('/danh-muc-san-pham/'.slugify(optional($productFeature -> category) -> title,'-').'/'.optional($productFeature -> category) -> id)}}"> </a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{ route('product.detail',['slug' => slugify($productFeature -> title,'-'),'id' => $productFeature -> id])}}">{{$productFeature -> title}}</a>
