@@ -43,11 +43,11 @@
                         <div class="row">
                             
                             @forelse($categories as $category)
-                           {{dd(slugify($category -> title,'-'))}}
+                          
                                 <div class="col-md-3 col-6 mb-4">
                                     <div
                                         class="category category-default category-default-1 category-absolute overlay-zoom">
-                                        <a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">
+                                        <a href="{{ url('/danh-muc-san-pham/'.slugify($category -> title,'-').'/'.$category -> id)}}">
                                             <figure class="category-media">
                                                 <img src="uploads/categories/{{$category -> image}}" alt="{{$category -> title}}"
                                                     width="280" height="280" title="{{$category -> title}}"/>
