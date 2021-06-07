@@ -13,7 +13,7 @@ $(function () {
             $.ajax({
 
                 type:'get',
-                url:'http://localhost/shop2/public/khalaadmin/get-product-features',
+                url:'https://khala-shop2.herokuapp.com/khalaadmin/get-product-features',
                 data:{id_category:idCategory},
                 success:function(resp){
                    
