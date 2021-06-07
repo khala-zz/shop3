@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
-//use App\Models\Category;
+use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Routing\UrlGenerator;
 
@@ -31,9 +31,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
         //get tat ca category
-        /*$categories = Category::select('id','title','parent_id')  -> where('is_active',1) -> get();
+        $categories = Category::select('id','title','parent_id')  -> where('is_active',1) -> get();
         // share cho menu danh muc san pham
-        View::share('categories_share', $categories);*/
+        View::share('categories_share', $categories);
         if (env('APP_ENV') !== 'local') {
                     $url->forceScheme('https');
               }
