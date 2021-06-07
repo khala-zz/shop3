@@ -43,7 +43,7 @@
                         <div class="row">
                             
                             @forelse($categories as $category)
-                           {{slugify($category -> title,'-')}}
+                           {{dd(slugify($category -> title,'-'))}}
                                 <div class="col-md-3 col-6 mb-4">
                                     <div
                                         class="category category-default category-default-1 category-absolute overlay-zoom">
