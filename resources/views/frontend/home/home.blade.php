@@ -41,24 +41,28 @@
                     <div class="container pt-3">
                         <h2 class="title">danh mục sản phẩm ưa chuộng</h2>
                         <div class="row">
-
-                            @foreach($categories as $category)
+                            {{dd($categories)}}
+                            @forelse($categories as $category)
                            
-                            <div class="col-md-3 col-6 mb-4">
-                                <div
-                                    class="category category-default category-default-1 category-absolute overlay-zoom">
-                                    <a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">
-                                        <figure class="category-media">
-                                            <img src="uploads/categories/{{$category -> image}}" alt="{{$category -> title}}"
-                                                width="280" height="280" title="{{$category -> title}}"/>
-                                        </figure>
-                                    </a>
-                                    <div class="category-content">
-                                        <h4 class="category-name"><a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">{{$category -> title}}</a></h4>
+                                <div class="col-md-3 col-6 mb-4">
+                                    <div
+                                        class="category category-default category-default-1 category-absolute overlay-zoom">
+                                        <a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">
+                                            <figure class="category-media">
+                                                <img src="uploads/categories/{{$category -> image}}" alt="{{$category -> title}}"
+                                                    width="280" height="280" title="{{$category -> title}}"/>
+                                            </figure>
+                                        </a>
+                                        <div class="category-content">
+                                            <h4 class="category-name"><a href="{{ route('category.product',['slug' => slugify($category -> title,'-'),'id' => $category -> id])}}">{{$category -> title}}</a></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
+                            @empty
+                                <div class="col-md-3 col-6 mb-4">
+                                    Chưa có danh mục sản phẩm
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                 </section>
