@@ -57,11 +57,10 @@ class HomeController extends Controller
         ->get(); 
 
     	//get 3 product rating cao
-    	//$products_rate = $this -> product -> select('id','image','title','price','new','discount','pro_total_rating','pro_total_number') -> where('is_active',1) -> orderByRaw('pro_total_number / pro_total_rating DESC') -> take(3) -> get();
-        $products_rate = $this -> product -> select('id','image','title','price','new','discount','pro_total_rating','pro_total_number') -> where('is_active',1)  -> take(3) -> get();
+    	$products_rate = $this -> product -> select('id','image','title','price','new','discount','pro_total_rating','pro_total_number') -> where('is_active',1) -> orderByRaw('pro_total_number / pro_total_rating DESC') -> take(3) -> get();
 
     	//get 3 product giảm giá
-    	$products_sale = $this -> product  -> select('id','image','title','price','new','discount','pro_total_rating','pro_total_number') -> where('is_active',1) -> where('discount','<>',0) ->latest() -> take(3) -> get();
+    	$products_sale = $this -> product  -> select('id','image','title','price','new','discount','pro_total_rating','pro_total_number') -> where('is_active',1) -> where('discount','<>','') ->latest() -> take(3) -> get();
 
         //get news latest 
         $news = $this -> news  -> select('id','image_name','title','description') -> where('is_active',1) ->latest() -> take(2) -> get();
