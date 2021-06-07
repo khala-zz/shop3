@@ -43,7 +43,7 @@ trait Helpers
                 $ext = $image->getClientOriginalExtension();
                 $file_name = time().md5(rand(100,999)).'.'.$ext;
                 $image->move($destination, $file_name);
-                @chmod($destination . '/' . $file_name, 777);
+                chmod($destination . '/' . $file_name, 0777);
                 $files_array[] = $file_name;
             }
         }
