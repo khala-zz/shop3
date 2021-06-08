@@ -237,8 +237,7 @@ class AdminProductController extends Controller
 
                 $product->image = uploadFile($request, 'image', public_path('uploads/products-daidien'),$request -> input('title'));
             }
-            $product -> pro_total_number = 1;
-            $product -> pro_total_rating =1;
+
             $product->save();
 
             if($product->features()->count() > 0) {
