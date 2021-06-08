@@ -42,7 +42,7 @@
                         <h2 class="title">danh mục sản phẩm ưa chuộng</h2>
                         <div class="row">
 
-                            @foreach($categories as $category)
+                            @foreach($categories_share as $category)
                            
                             <div class="col-md-3 col-6 mb-4">
                                 <div
