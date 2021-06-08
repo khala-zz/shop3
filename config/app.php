@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //khala
         Spatie\Permission\PermissionServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
 
     ],
 
