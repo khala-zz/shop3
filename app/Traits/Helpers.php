@@ -61,7 +61,7 @@ trait Helpers
     }
 
 
-    function resizeImage($imagePath, $savePath, $width, $height)
+    function resizeImage($imagePath, $savePath, $width, $height, $uploaded_file)
     {
          $googleDriveStorage_image = Storage::disk('google_drive');
         //large 
