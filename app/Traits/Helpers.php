@@ -5,6 +5,9 @@ namespace App\Traits;
 
 
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Str;
 
 trait Helpers
 {
