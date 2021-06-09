@@ -109,11 +109,44 @@ trait Helpers
         }
     }
 
-    public function deleteFile($path)
+    public function deleteFile($path,$file_name,$dir)
     {
         
-        if(file_exists($path)) {
-            @unlink($path);
+         if($dir == '1Q7gpPodh56tCp1cY4mJ35F-mL7mW5ozH'){
+            $googleDriveStorage = Storage::disk('large_google_drive');
+           
+            $fileinfo = collect($googleDriveStorage->listContents('/', false))
+                ->where('type', 'file')
+                ->where('name', $file_name)
+                ->first();
+            $googleDriveStorage->delete($fileinfo['path']);    
+        }
+        elseif($dir == '1TZZWa2MumDZjO-gKIPjaFPCi2nvbFcvA'){
+            $googleDriveStorage = Storage::disk('medium_google_drive');
+           
+            $fileinfo = collect($googleDriveStorage->listContents('/', false))
+                ->where('type', 'file')
+                ->where('name', $file_name)
+                ->first();
+            $googleDriveStorage->delete($fileinfo['path']);    
+        }
+        elseif($dir == '19_X0lc8GknbdDeEJ1vDo4ve7N2uPEaXs'){
+            $googleDriveStorage = Storage::disk('small_google_drive');
+           
+            $fileinfo = collect($googleDriveStorage->listContents('/', false))
+                ->where('type', 'file')
+                ->where('name', $file_name)
+                ->first();
+            $googleDriveStorage->delete($fileinfo['path']);    
+        }
+        else {
+             $googleDriveStorage = Storage::disk('google_drive');
+           
+            $fileinfo = collect($googleDriveStorage->listContents('/', false))
+                ->where('type', 'file')
+                ->where('name', $file_name)
+                ->first();
+            $googleDriveStorage->delete($fileinfo['path']);    
         }
     }
 
