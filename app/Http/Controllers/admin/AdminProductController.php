@@ -399,8 +399,16 @@ class AdminProductController extends Controller
 
             // start resize images
             foreach ($this->imagesSizes as $dirName => $imagesSize) {
-                $this->resizeImage(base_path('public').'/uploads/' . $product->id . '/' . $uploaded_file, base_path('public').'/uploads/' . $product->id . '/' . $dirName . '/' . $uploaded_file, $imagesSize['width'], $imagesSize['height']);
+               
+                   
+                    $this->resizeImage(base_path('public').'/uploads/' . $product->id . '/' . $uploaded_file, base_path('public').'/uploads/' . $product->id . '/' . $dirName . '/' . $uploaded_file, $imagesSize['width'], $imagesSize['height'],$uploaded_file);
+                   
+               
+                
+                
             }
         }
     }
+
+    
 }

@@ -34,6 +34,57 @@ class GoogleDriveServiceProvider extends ServiceProvider
  
             return new Filesystem($adapter);
         });
+
+        Storage::extend('large_google_drive', function($app, $config) {
+            $client = new Google_Client();
+            $client->setClientId($config['clientId']);
+            $client->setClientSecret($config['clientSecret']);
+            $client->refreshToken($config['refreshToken']);
+            $service = new Google_Service_Drive($client);
+ 
+            $options = [];
+            if (isset($config['teamDriveId'])) {
+                $options['teamDriveId'] = $config['teamDriveId'];
+            }
+ 
+            $adapter = new GoogleDriveAdapter($service, $config['folderId'], $options);
+ 
+            return new Filesystem($adapter);
+        });
+
+        Storage::extend('medium_google_drive', function($app, $config) {
+            $client = new Google_Client();
+            $client->setClientId($config['clientId']);
+            $client->setClientSecret($config['clientSecret']);
+            $client->refreshToken($config['refreshToken']);
+            $service = new Google_Service_Drive($client);
+ 
+            $options = [];
+            if (isset($config['teamDriveId'])) {
+                $options['teamDriveId'] = $config['teamDriveId'];
+            }
+ 
+            $adapter = new GoogleDriveAdapter($service, $config['folderId'], $options);
+ 
+            return new Filesystem($adapter);
+        });
+
+        Storage::extend('small_google_drive', function($app, $config) {
+            $client = new Google_Client();
+            $client->setClientId($config['clientId']);
+            $client->setClientSecret($config['clientSecret']);
+            $client->refreshToken($config['refreshToken']);
+            $service = new Google_Service_Drive($client);
+ 
+            $options = [];
+            if (isset($config['teamDriveId'])) {
+                $options['teamDriveId'] = $config['teamDriveId'];
+            }
+ 
+            $adapter = new GoogleDriveAdapter($service, $config['folderId'], $options);
+ 
+            return new Filesystem($adapter);
+        });
     }
  
     /**

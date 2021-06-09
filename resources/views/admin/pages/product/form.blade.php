@@ -186,9 +186,21 @@
       <!-- hien thi nhieu image -->
       <div class="row" >
       @if(isset($image_gallery) && !empty($image_gallery))
+        @php 
+            //su dung google drive
+            $googleDriveStorage = Storage::disk('small_google_drive');
+        @endphp
         @foreach($image_gallery as $gallery)
                 <div class="col-lg-3 delete-ele-{{$gallery -> id}}">
-                    <img src="{{ url('uploads/'.$product -> id.'/small/' . $gallery->image) }}" class="photo_preview" />
+                    @php 
+                        //get hình ảnh từ google drive
+                        $fileinfo = collect($googleDriveStorage->listContents('/', false))
+                            ->where('type', 'file')
+                            ->where('name', $gallery -> image)
+                            ->first();   
+                    @endphp
+                    
+                    <img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>" class="photo_preview" />
                     <a href="#" class="btn btn-danger remove-feature-product"  title="xóa" data-value="{{ $gallery -> id}}"><i class="fa fa-remove"></i></a>
                 </div>
         @endforeach     
