@@ -199,7 +199,7 @@
                             ->where('name', $gallery -> image)
                             ->first();   
                     @endphp
-                    
+                    dd($fileinfo)
                     <img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>" class="photo_preview" />
                     <a href="#" class="btn btn-danger remove-feature-product"  title="xóa" data-value="{{ $gallery -> id}}"><i class="fa fa-remove"></i></a>
                 </div>
