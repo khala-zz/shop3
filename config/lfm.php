@@ -61,7 +61,7 @@ return [
             ],
         ],
         'image' => [
-            'folder_name'  => 'photos',
+            'folder_name'  => '1iuso5O6fepnoViK679d9EplkVHmN-UvY',
             'startup_view' => 'grid',
             'max_size'     => 50000, // size in KB
             'valid_mime'   => [
