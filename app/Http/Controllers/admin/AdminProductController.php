@@ -287,6 +287,8 @@ class AdminProductController extends Controller
     {
         try {
             $product = $this -> product -> with('gallery')->findOrFail($id);
+            
+            dd($product);
 
             // check if this product have orders attached to it then reject delete
             /*if($product->orderDetails->count() > 0) {
