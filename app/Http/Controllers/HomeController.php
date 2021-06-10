@@ -28,7 +28,7 @@ class HomeController extends Controller
     }
     public function home(){
     	//get setting
-    	$settings = $this -> setting -> select('setting_key','setting_value') -> where('is_active',1) ->whereNotIn('id',[6,7])->get();
+    	$settings = $this -> setting -> select('setting_key','setting_value') -> where('is_active',1) ->whereNotIn('id',[1,3])->get();
     	//get slider
     	$sliders = $this -> slider -> select('name','nametwo','namethree','namefour','image_name') -> where('is_active',1) -> get();
     	
