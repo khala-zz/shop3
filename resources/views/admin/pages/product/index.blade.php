@@ -105,7 +105,7 @@
                                     <!-- Sửa -->
                                     <a href="{{ url('/khalaadmin/products/' . $item->id . '/edit') }}" title="Sửa slider "><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa</button></a>
                                     <!-- Xóa -->
-                                   <a href="" data-url="{{ route('product.delete',['id' => $item -> id]) }}" data-toggle="tooltip" data-original-title="Xóa" class="btn btn-danger btn-sm sa-warning"> <i class="fa fa-trash-o">Xóa</i> </a>
+                                   <a href="" data-url="{{ url('/khalaadmin/delete-product/'.$item -> id) }}" data-toggle="tooltip" data-original-title="Xóa" class="btn btn-danger btn-sm sa-warning"> <i class="fa fa-trash-o">Xóa</i> </a>
 
                                 </td>
                             </tr>
