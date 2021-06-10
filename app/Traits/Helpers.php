@@ -109,7 +109,7 @@ trait Helpers
         }
     }
 
-    public function deleteFile($path,$file_name = '',$dir = '')
+    public function deleteFile($path,$file_name,$dir)
     {
         
          if($dir == '1Q7gpPodh56tCp1cY4mJ35F-mL7mW5ozH'){
@@ -148,9 +148,9 @@ trait Helpers
                 ->first();
             $googleDriveStorage->delete($fileinfo['path']);    
         }
-        if(file_exists($path)) {
+       /* if(file_exists($path)) {
             @unlink($path);
-        }
+        }*/
     }
 
     public static function slugify($string, $separator = "-")

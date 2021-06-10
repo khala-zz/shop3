@@ -322,7 +322,8 @@ class AdminProductController extends Controller
             /*if($product->orderDetails->count() > 0) {
                 throw new \Exception("Can't delete the product as there already orders attached to it");
             }*/
-            $this->deleteFile(base_path('public').'/uploads/products-daidien/' . $product->image);
+            //vi su dung google drive nen khong xoa duoc cho thu muc products dai dien vi chua up product dai dien len gg drive
+            //$this->deleteFile(base_path('public').'/uploads/products-daidien/' . $product->image);
             foreach ($product->gallery as $gallery) {
                 if(!empty($gallery->image)) {
                     foreach ($gallery->image_url as $dir => $url) {
