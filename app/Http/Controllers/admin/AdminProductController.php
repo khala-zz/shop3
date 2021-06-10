@@ -329,6 +329,7 @@ class AdminProductController extends Controller
             foreach ($product->gallery as $gallery) {
                 if(!empty($gallery->image)) {
                     foreach ($gallery->image_url as $dir => $url) {
+                        dd($dir);
                         $this->deleteFile(base_path('public').'/uploads/' . $gallery->product_id . '/' . $dir . '/' . $gallery->image,$gallery -> image,$dir);
                         
                     }
