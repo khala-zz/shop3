@@ -111,7 +111,7 @@ trait Helpers
 
     public function deleteFile($path,$file_name,$dir)
     {
-        echo $file_name;
+        dd($file_name);
          if($dir == '1Q7gpPodh56tCp1cY4mJ35F-mL7mW5ozH'){
             $googleDriveStorage = Storage::disk('large_google_drive');
            
