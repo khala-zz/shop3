@@ -182,10 +182,12 @@
 							                            ->where('name', $imageGallery -> image)
 							                            ->first(); 
 
-							                    @endphp	
+							                    @endphp
+                                                @if($fileinfo <> null && $fileinfo_large <> null)
 												<img src="<?php echo $googleDriveStorage_medium -> url($fileinfo['path']);?>"
 													data-zoom-image="<?php echo $googleDriveStorage_large -> url($fileinfo_large['path']);?>"
 													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900">
+                                                @endif    
 											</figure>
 											
 											@endforeach
@@ -205,8 +207,10 @@
 								                            ->first();   
 								                    @endphp
 													<div class="product-thumb {{$index == 0 ? 'active' : ''}}">
+                                                         @if($fileinfo <> null )
 														<img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>"
-															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">	
+															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">
+                                                            @endif
 													</div>
 												@empty
 													<p>Chưa có hình ảnh</p>	
