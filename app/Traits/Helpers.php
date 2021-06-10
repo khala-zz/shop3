@@ -128,7 +128,7 @@ trait Helpers
                 ->where('type', 'file')
                 ->where('name', $file_name)
                 ->first();
-            dd($fileinfo);
+            
             $googleDriveStorage->delete($fileinfo['path']);    
         }
         elseif($dir == '19_X0lc8GknbdDeEJ1vDo4ve7N2uPEaXs'){
