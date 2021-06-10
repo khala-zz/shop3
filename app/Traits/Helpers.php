@@ -111,7 +111,7 @@ trait Helpers
 
     public function deleteFile($path,$file_name,$dir)
     {
-        {{dd($dir);}}
+        echo $file_name;
          if($dir == '1Q7gpPodh56tCp1cY4mJ35F-mL7mW5ozH'){
             $googleDriveStorage = Storage::disk('large_google_drive');
            
@@ -128,6 +128,7 @@ trait Helpers
                 ->where('type', 'file')
                 ->where('name', $file_name)
                 ->first();
+            die($fileinfo);
             $googleDriveStorage->delete($fileinfo['path']);    
         }
         elseif($dir == '19_X0lc8GknbdDeEJ1vDo4ve7N2uPEaXs'){
@@ -137,6 +138,7 @@ trait Helpers
                 ->where('type', 'file')
                 ->where('name', $file_name)
                 ->first();
+            
             $googleDriveStorage->delete($fileinfo['path']);    
         }
         else {
