@@ -61,7 +61,7 @@ return [
             ],
         ],
         'image' => [
-            'folder_name'  => '1iuso5O6fepnoViK679d9EplkVHmN-UvY',
+            'folder_name'  => 'photos',
             'startup_view' => 'grid',
             'max_size'     => 50000, // size in KB
             'valid_mime'   => [
@@ -90,7 +90,7 @@ return [
     |--------------------------------------------------------------------------
      */
 
-    'disk'                     => 'google_drive',
+    'disk'                     => 'public',
 
     'rename_file'              => false,
 
