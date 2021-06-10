@@ -63,7 +63,7 @@ class ProductController extends Controller
 
 
     	//get setting
-		$settings = $this -> setting -> select('setting_key','setting_value') -> where('is_active',1) ->whereNotIn('id',[4,7])->get();
+		$settings = $this -> setting -> select('setting_key','setting_value') -> where('is_active',1) ->whereNotIn('id',[1,2])->get();
 
     	//get setting chinh sách
 		$setting_chinh_sach = $this -> setting -> select('setting_key','setting_value') 
