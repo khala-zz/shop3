@@ -162,25 +162,55 @@
 							<div class="product product-single row mb-4">
 								<div class="col-md-6">
 									<div class="product-gallery">
-										<div
-											class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
+										<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
+											@php 
+									            //get hinh anh large tu google drive
+									            $googleDriveStorage_large = Storage::disk('large_google_drive');
+									            //get hinh anh medium tu google drive
+									            $googleDriveStorage_medium = Storage::disk('medium_google_drive');
+									        @endphp
 											@foreach($product -> gallery as $imageGallery)
 											<figure class="product-image">
-												<img src="{{asset('uploads/'.$product->id.'/medium/'.$imageGallery -> image)}}"
-													data-zoom-image="{{asset('uploads/'.$product->id.'/large/'.$imageGallery -> image)}}"
+												@php 
+							                        $fileinfo = collect($googleDriveStorage_medium->listContents('/', false))
+							                            ->where('type', 'file')
+							                            ->where('name', $imageGallery -> image)
+							                            ->first(); 
+							                        //fileinfo large
+							                        $fileinfo_large = collect($googleDriveStorage_large->listContents('/', false))
+							                            ->where('type', 'file')
+							                            ->where('name', $imageGallery -> image)
+							                            ->first(); 
+
+							                    @endphp	
+												<img src="<?php echo $googleDriveStorage_medium -> url($fileinfo['path']);?>"
+													data-zoom-image="<?php echo $googleDriveStorage_large -> url($fileinfo_large['path']);?>"
 													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900">
 											</figure>
+											
 											@endforeach
 											
 										</div>
 										<div class="product-thumbs-wrap">
 											<div class="product-thumbs">
-												@foreach($product -> gallery as $index => $imageGallerySmall)
-												<div class="product-thumb {{$index == 0 ? 'active' : ''}}">
-													<img src="{{asset('uploads/'.$product->id.'/small/'.$imageGallerySmall -> image)}}"
-														alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">
-												</div>
-												@endforeach
+												@php 
+										            //get hinh anh small tu google drive
+										            $googleDriveStorage = Storage::disk('small_google_drive');
+										        @endphp
+												@forelse($product -> gallery as $index => $imageGallerySmall)
+													@php 
+								                        $fileinfo = collect($googleDriveStorage->listContents('/', false))
+								                            ->where('type', 'file')
+								                            ->where('name', $imageGallerySmall -> image)
+								                            ->first();   
+								                    @endphp
+													<div class="product-thumb {{$index == 0 ? 'active' : ''}}">
+														<img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>"
+															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">	
+													</div>
+												@empty
+													<p>Chưa có hình ảnh</p>	
+												@endforelse
 												
 											</div>
 											<button class="thumb-up disabled"><i
