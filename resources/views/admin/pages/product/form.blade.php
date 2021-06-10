@@ -201,8 +201,11 @@
                     @endphp
                     @if($fileinfo <> null)
                     <img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>" class="photo_preview" />
-                    <a href="#" class="btn btn-danger remove-feature-product"  title="xóa" data-value="{{ $gallery -> id}}"><i class="fa fa-remove"></i></a>
+                    @else
+                    <img src="{{ url('uploads/'.$product -> id.'/small/' . $gallery->image) }}" class="photo_preview" />
                     @endif
+                    <a href="#" class="btn btn-danger remove-feature-product"  title="xóa" data-value="{{ $gallery -> id}}"><i class="fa fa-remove"></i></a>
+                    
                 </div>
         @endforeach     
        @endif       
