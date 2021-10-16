@@ -209,7 +209,7 @@ class CityTableSeeder extends Seeder
           ];
 
           City::insert($cities);
-          \Illuminate\Support\Facades\DB::table('shipping_addresses ')
+          \Illuminate\Support\Facades\DB::table('shipping_addresses')
             ->insert(array('address' => 'test address', 'country' => 'vnam', 'city' => 'hcm', 'postal_code' => 'test','mobile' => '4324','is_primary' => 1,'user_id' => 1));
     }
 }
