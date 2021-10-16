@@ -29,12 +29,12 @@
                             <div class="inner">
                                 <h3>{{ count(getCategories()) }}</h3>
 j
-                                <p>Contacts</p>
+                                <p>Danh mục sản phẩm</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="{{ url('khalaadmin/categories') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="{{ url('khalaadmin/categories') }}" class="small-box-footer">Xem tất cả <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -47,12 +47,12 @@ j
                             <div class="inner">
                                 <h3>{{count(getProducts())}}</h3>
 
-                                <p>Leads</p>
+                                <p>Sản phẩm</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="{{ url('khalaadmin/products') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="{{ url('khalaadmin/products') }}" class="small-box-footer">Xem tất cả <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
