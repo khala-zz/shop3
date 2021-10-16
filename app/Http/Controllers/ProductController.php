@@ -396,6 +396,7 @@ class ProductController extends Controller
         $order -> payment_method = $data['paymentMethod'];
         $order -> payment_method_id =1;
         $order -> total_price = $data['grand_total'];
+        $order -> shipping_address_id = 1;
         $order -> save();
 
         //get id order
