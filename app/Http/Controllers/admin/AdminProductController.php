@@ -197,6 +197,7 @@ class AdminProductController extends Controller
       
         //get image gallery
         $image_gallery = $product -> gallery() -> get();
+        dd($image_gallery);
         //get brand
         $brands = $this -> brand -> all();
         // get category
