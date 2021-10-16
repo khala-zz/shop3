@@ -401,6 +401,7 @@ class ProductController extends Controller
         $order -> paypal_email = 'test';
         $order -> paypal_given_name = 'test';
         $order -> paypal_payer_id = 'test';
+        $order -> product_id = 1;
         $order -> save();
 
         //get id order
