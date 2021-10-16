@@ -393,8 +393,8 @@ class ProductController extends Controller
         $order -> ma_order = $ma_order_id;
         $order -> coupon_code = $coupon_code;
         $order -> coupon_amount = $coupon_amount;
-        //$order -> payment_method = $data['paymentMethod'];
-        $order -> payment_method = 1;
+        $order -> payment_method = $data['paymentMethod'];
+        $order -> payment_method_id =1;
         $order -> total_price = $data['grand_total'];
         $order -> save();
 
