@@ -194,10 +194,10 @@ class AdminProductController extends Controller
         
         //check features thong qua category relation co with features
         $check_features = $product -> category() -> get();
-      ProductGallery::whereIn('id',['9','10','11','12']) -> delete();
+      
         //get image gallery
         $image_gallery = $product -> gallery() -> get();
-        dd($image_gallery);
+        
         //get brand
         $brands = $this -> brand -> all();
         // get category
