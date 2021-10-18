@@ -392,6 +392,14 @@ class ProductController extends Controller
         $order -> coupon_amount = $coupon_amount;
         $order -> payment_method = $data['paymentMethod'];
         $order -> total_price = $data['grand_total'];
+
+        $order -> payment_method_id = 1;
+        $order -> shipping_address_id  = 1;
+        $order -> paypal_order_identifier = 'test';
+        $order -> paypal_email = 'test';
+        $order -> paypal_given_name = 'test';
+        $order -> paypal_payer_id = 'test';
+        $order -> product_id = 1;
         $order -> save();
 
         //get id order
