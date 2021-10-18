@@ -165,17 +165,17 @@
 										<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
 											@php 
 									            //get hinh anh large tu google drive
-									            //$googleDriveStorage_large = Storage::disk('large_google_drive');
+									            $googleDriveStorage_large = Storage::disk('large_google_drive');
 									            //get hinh anh medium tu google drive
-									            //$googleDriveStorage_medium = Storage::disk('medium_google_drive');
+									            $googleDriveStorage_medium = Storage::disk('medium_google_drive');
 									        @endphp
 											@foreach($product -> gallery as $imageGallery)
 											<figure class="product-image">
-												<img src="{{asset('uploads/'.$product->id.'/medium/'.$imageGallery -> image)}}"
+												{{-- <img src="{{asset('uploads/'.$product->id.'/medium/'.$imageGallery -> image)}}"
 													data-zoom-image="{{asset('uploads/'.$product->id.'/large/'.$imageGallery -> image)}}"
-													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900">
+													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900"> --}}
 												@php 
-							                        /*$fileinfo = collect($googleDriveStorage_medium->listContents('/', false))
+							                        $fileinfo = collect($googleDriveStorage_medium->listContents('/', false))
 							                            ->where('type', 'file')
 							                            ->where('name', $imageGallery -> image)
 							                            ->first(); 
@@ -183,13 +183,13 @@
 							                        $fileinfo_large = collect($googleDriveStorage_large->listContents('/', false))
 							                            ->where('type', 'file')
 							                            ->where('name', $imageGallery -> image)
-							                            ->first(); */
+							                            ->first(); 
 
 							                    @endphp	
-							                    {{--
+							                    
 												<img src="<?php echo $googleDriveStorage_medium -> url($fileinfo['path']);?>"
 													data-zoom-image="<?php echo $googleDriveStorage_large -> url($fileinfo_large['path']);?>"
-													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900">	--}}
+													alt="{{$product -> title.'-'.$imageGallery -> image}}" width="800" height="900">	
 											</figure>
 											@endforeach
 											
@@ -198,22 +198,22 @@
 											<div class="product-thumbs">
 												@php 
 										            //get hinh anh small tu google drive
-										            //$googleDriveStorage = Storage::disk('small_google_drive');
+										            $googleDriveStorage = Storage::disk('small_google_drive');
 										        @endphp
 												@foreach($product -> gallery as $index => $imageGallerySmall)
 													@php 
-								                        /*$fileinfo = collect($googleDriveStorage->listContents('/', false))
+								                        $fileinfo = collect($googleDriveStorage->listContents('/', false))
 								                            ->where('type', 'file')
 								                            ->where('name', $imageGallerySmall -> image)
-								                            ->first();   */
+								                            ->first();   
 								                    @endphp
 													<div class="product-thumb {{$index == 0 ? 'active' : ''}}">
 														
-														<img src="{{asset('uploads/'.$product->id.'/small/'.$imageGallerySmall -> image)}}"
-															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122"> 
-														{{--
+														{{-- <img src="{{asset('uploads/'.$product->id.'/small/'.$imageGallerySmall -> image)}}"
+															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">  --}}
+														
 														<img src="<?php echo $googleDriveStorage -> url($fileinfo['path']);?>"
-															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">	--}}
+															alt="{{$product -> title.'-'.$imageGallerySmall -> image}}" width="109" height="122">	
 													</div>
 												@endforeach
 												
