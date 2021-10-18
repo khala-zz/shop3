@@ -128,7 +128,7 @@
                             <div class="product-details">
                               
                                 <div class="product-cat">
-                                    <a href="{{route('category.product',['slug' => slugify($product -> catTitle,'-'),'id' => $product -> catId])}}">{{ $product -> catTitle }}</a>
+                                    <a href="{{route('category.product',['slug' => slugify(optional($product -> category) -> title,'-'),'id' => optional($product -> category) -> id])}}">{{ $product -> category -> title }}</a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{ route('product.detail',['slug' => slugify($product -> title,'-'),'id' => $product -> id])}}">{{ $product -> title }}</a>
