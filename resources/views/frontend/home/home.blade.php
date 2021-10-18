@@ -88,6 +88,7 @@
                             }
                         }
                     }">
+                    {{dd($products_selling)}}
                         @foreach($products_selling as $product)
                         <!-- kiem tra xem product co giam gia hay khong? -->
                         @if(!empty($product -> discount))
