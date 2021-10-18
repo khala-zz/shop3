@@ -44,10 +44,10 @@ class HomeController extends Controller
 
     	//get product bán chạy 
 
-        $products_selling = $this -> product -> leftJoin('categories','products.category_id','=','categories.id')
-        ->leftJoin('orders_products','products.id','=','orders_products.product_id')
+        $products_selling = $this -> product -> leftJoin('categories as c','products.category_id','=','c.id')
+        ->leftJoin('orders_products as o_p','products.id','=','o_p.product_id')
         
-        ->selectRaw('categories.title catTitle,categories.id catId,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating,orders_products.product_id idOrder, COALESCE(sum(orders_products.product_qty),0) total')
+        ->selectRaw('c.title as catTitle,c.id as catId,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating,o_p.product_id as idOrder, COALESCE(sum(o_p.product_qty),0) total')
         ->groupByRaw('catTitle,catId,idOrder,products.id,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating')
 
         ->orderBy('total','desc')
