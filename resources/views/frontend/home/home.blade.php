@@ -88,7 +88,6 @@
                             }
                         }
                     }">
-                    {{dd($products_selling)}}
                         @foreach($products_selling as $product)
                         <!-- kiem tra xem product co giam gia hay khong? -->
                         @if(!empty($product -> discount))
@@ -129,7 +128,7 @@
                             <div class="product-details">
                               
                                 <div class="product-cat">
-                                    <a href="{{route('category.product',['slug' => slugify(optional($product -> category) -> title,'-'),'id' => optional($product -> category) -> id])}}">{{ $product -> category -> title }}</a>
+                                    <a href="{{route('category.product',['slug' => slugify($product -> cat_title,'-'),'id' => $product -> cat_id])}}">{{ $product -> cat_title }}</a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{ route('product.detail',['slug' => slugify($product -> title,'-'),'id' => $product -> id])}}">{{ $product -> title }}</a>

@@ -47,8 +47,8 @@ class HomeController extends Controller
         $products_selling = $this -> product -> leftJoin('categories as c','products.category_id','=','c.id')
         ->leftJoin('orders_products as o_p','products.id','=','o_p.product_id')
         
-        ->selectRaw('c.title as catTitle,c.id as catId,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating,o_p.product_id as idOrder, COALESCE(sum(o_p.product_qty),0) total')
-        ->groupByRaw('catTitle,catId,idOrder,products.id,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating')
+        ->selectRaw('c.title as cat_title,c.id as cat_id,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating,o_p.product_id as idOrder, COALESCE(sum(o_p.product_qty),0) total')
+        ->groupByRaw('cat_title,cat_id,idOrder,products.id,products.id,products.title,products.product_code,products.image,products.price,products.new,products.discount,products.pro_total_number,products.pro_total_rating')
 
         ->orderBy('total','desc')
         ->where('products.is_active',1)
